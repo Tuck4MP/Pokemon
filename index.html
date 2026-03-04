@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokémon Infinite Fusion — Tracker Nuzlocke</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Pokémon Infinite Fusion — Tracker de Nuzlocke</h1>
+      <p>
+        Organize sua run, veja onde encontrar cada Pokémon e marque quais você
+        já capturou.
+      </p>
+      <p class="hint">
+        Baseado nas informações do Pokédex da wiki de Infinite Fusion
+        (dados iniciais resumidos para começar rápido).
+      </p>
+    </header>
+
+    <main class="layout">
+      <aside class="panel controls" aria-label="Filtros e progresso">
+        <h2>Filtros</h2>
+
+        <label class="field">
+          <span>Buscar Pokémon</span>
+          <input id="searchInput" type="search" placeholder="Ex: Pikachu" />
+        </label>
+
+        <label class="field">
+          <span>Local</span>
+          <select id="locationFilter">
+            <option value="all">Todos os locais</option>
+          </select>
+        </label>
+
+        <label class="checkline">
+          <input id="onlyMissing" type="checkbox" />
+          <span>Mostrar apenas não capturados</span>
+        </label>
+
+        <section class="progress">
+          <h2>Progresso</h2>
+          <p id="progressText">0 / 0 capturados</p>
+          <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div id="progressFill"></div>
+          </div>
+          <button id="clearBtn" class="danger" type="button">Limpar marcações</button>
+        </section>
+      </aside>
+
+      <section class="panel list-panel" aria-label="Lista de Pokémon">
+        <h2>Pokédex de Nuzlocke</h2>
+        <p class="small">
+          Dica: clique em “Capturado” para marcar seu progresso. Os dados ficam
+          salvos no navegador.
+        </p>
+
+        <div id="pokemonList" class="cards" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <template id="pokemonCardTemplate">
+      <article class="card">
+        <div class="card-header">
+          <h3 class="poke-name"></h3>
+          <span class="poke-number"></span>
+        </div>
+        <p class="types"></p>
+        <p class="locations"></p>
+        <p class="method"></p>
+        <button class="capture-toggle" type="button"></button>
+      </article>
+    </template>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
